@@ -12,12 +12,10 @@ templateUrl:'view/partial-home.html'
 .state('home.list',{
 url:'/list',
 templateUrl:'view/partial-home-list.html',
-controllerAs : 'listview',
-controller: function(){
-this.names=['himanshu','anshuli'];
-}
-
+controllerAs : 'appview',
+controller:'viewContact'
 })
+
 .state('home.addContact',{
 url:'/addContact',
 templateUrl:'view/partial-add-contact.html',
