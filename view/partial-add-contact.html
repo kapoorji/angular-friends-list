@@ -1,56 +1,69 @@
 <div class="row">
-<span/>
-<div class="col-sm-6" >
-	<div class="add">
-		<button title="Add a contact" type="button" class="btn btn-default btn-sm" ng-click="appview.add()" ng-model="appview.addvalue">
-		  <span ng-hide="appview.addvalue" class="glyphicon glyphicon-plus"></span>
-		  <span ng-show="appview.addvalue" class="glyphicon glyphicon-minus"></span>
-		</button>
-	</div>
-<!--  <div ng-show="appview.addvalue">		
-	  Name:<input type="text" ng-model="appview.field.name"/></br>
-	  Email:<input type="text" ng-model="appview.field.email"/></br>
-	  Phone:<input type="text" ng-model="appview.field.phone" ng-maxlength="10"/></br>
-	  <button ng-click="appview.saveContact()">Save</button> 
- </div> -->
- <form role="form" ng-show="appview.addvalue">
-  <div class="form-group">
-    <label for="pwd">Name:</label>
-    <input type="text" class="form-control" id="pwd" ng-model="appview.field.name">
-  </div>
-   <div class="form-group">
-    <label for="email">Email:</label>
-    <input type="email" class="form-control" id="email" ng-model="appview.field.email">
-  </div>
-  <div class="form-group">
-    <label for="phone">Phone No:</label>
-    <input type="tel" class="form-control" id="phone" ng-model="appview.field.phone">
-  </div>
-  <button ng-click="appview.saveContact()" class="btn btn-default">Save</button>
-</form>
- 
-</div>  
+	<div class="col-sm-6">
+			<div class="add">
+				<button title="Add a contact" type="button" class="btn btn-default btn-sm" ng-click="appview.add()" ng-model="appview.addvalue">
+				  <span ng-hide="appview.addvalue" class="glyphicon glyphicon-plus"></span>
+				  <span ng-show="appview.addvalue" class="glyphicon glyphicon-minus"></span>
+				</button>
+			</div>
+		<!--  <div ng-show="appview.addvalue">		
+			  Name:<input type="text" ng-model="appview.field.name"/></br>
+			  Email:<input type="text" ng-model="appview.field.email"/></br>
+			  Phone:<input type="text" ng-model="appview.field.phone" ng-maxlength="10"/></br>
+			  <button ng-click="appview.saveContact()">Save</button> 
+		 </div> -->
+		 <form role="form" ng-show="appview.addvalue">
+			  <div class="form-group">
+				<label for="pwd">Name:</label>
+				<input type="text" class="form-control" id="pwd" ng-model="appview.field.name">
+			  </div>
+			   <div class="form-group">
+				<label for="email">Email:</label>
+				<input type="email" class="form-control" id="email" ng-model="appview.field.email">
+			  </div>
+			  <div class="form-group">
+				<label for="phone">Phone No:</label>
+				<input type="tel" class="form-control" id="phone" ng-model="appview.field.phone">
+			  </div>
+			  <button ng-click="appview.saveContact()" class="btn btn-default">Save</button>
+		</form>
+	</div>	
 
-<div class="col-sm-6">
- <table ng-repeat="c in appview.contacts">
-     <tr>
-		<td>{{c.name}}</td>
-		  </tr>
-	 <tr>
-		<td>{{c.email}}</td>
-	</tr>
-    
-	<tr>
-    <td>{{c.phone}}</td>
-    </tr>
-	 
-	 <tr>
-		<td><a ng-click="appview.editContact($index,c)"><img ng-src="./img/edit.png"/></td>
-		<td><a ng-click="appview.delContact($index)"><img ng-src="./img/delete.png"/></a></td>
-	  </tr>
-	  
-	</table> 
-	</div>
 	
- </div>
- 
+	<div class="col-sm-6">
+
+		<div class="listContact" ng-hide="appview.viewctn">
+		
+		 <table class="table table-hover" ng-repeat="c in appview.contacts">
+			 <tr>
+				<h3><td ng-click="appview.viewcontact($index)">{{c.name}}</td></h3>
+				  </tr>
+		</table> 
+
+		</div>
+
+		<div ng-show="appview.viewctn">
+		<span class="glyphicon glyphicon-arrow-left" ng-click="appview.listcontact()"></span>
+		<span/> <br/><br/>
+		
+		 <table class="table table-hover">
+			 <tr>
+				<td>{{appview.contacts[appview.editpointer].name}}</td>
+				  </tr>
+			 <tr>
+				<td>{{appview.contacts[appview.editpointer].email}}</td>
+			</tr>
+			
+			<tr>
+			<td>{{appview.contacts[appview.editpointer].phone}}</td>
+			</tr>
+			 
+			 <tr>
+				<td><a ng-click="appview.editContact(appview.editpointer)"><img ng-src="./img/edit.png"/></td>
+				<td><a ng-click="appview.delContact(appview.editpointer)"><img ng-src="./img/delete.png"/></a></td>
+			  </tr>
+			  
+			</table> 
+		</div>	
+	</div>
+</div>

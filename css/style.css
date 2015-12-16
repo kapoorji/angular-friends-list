@@ -1,3 +1,9 @@
 .add{
 float:right;
 }
+.listContact ul h3 li {
+cursor: pointer;
+}
+table tr h3 td{
+cursor: pointer;
+}
