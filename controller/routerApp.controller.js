@@ -21,6 +21,7 @@ this.field={};
   
  this.delContact= function(index) {
  this.contacts.splice(index,1);
+ this.listcontact();
  }
  
  this.editContact = function(index) {
