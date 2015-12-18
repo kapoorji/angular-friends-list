@@ -1,2 +1,4 @@
 # angular-friends-list
-friends List in Angular
+Friends List in Angular
+
+# Work In Progress
