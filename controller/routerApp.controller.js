@@ -42,4 +42,8 @@ this.field={};
  this.viewctn=!this.viewctn;
  this.editpointer=null;
  }
+ this.cancelContact = function() {  // cancel the contact form and toggle the contact form
+ this.field = {};
+ this.addvalue=!this.addvalue;
+ }
 });
